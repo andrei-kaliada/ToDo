@@ -3,7 +3,7 @@
     padding: 0;
     list-style: none;
     outline: none;
-    font-family: 'Robot', -apple-system, system-ui, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -27,6 +27,36 @@
         border-right: 1px solid #f1f1f1;
         padding: 60px 20px;
     }
+}
 
-  
+.btn{
+background: #4DD599;
+border-radius: 4px;
+padding:10px 20px;
+color:#fff;
+border:0;
+cursor: pointer;
+
+    &:hover{
+        background: darken( #4DD599, 7%)
+    }
+
+    
+    &:active{
+        background: darken( #4DD599, 10%)
+    }
+}
+
+.field {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 8px 12px;
+   
+
+    &:focus{
+        border-color: #dbdbdb;
+    }
 }

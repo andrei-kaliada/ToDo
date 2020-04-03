@@ -1,17 +1,22 @@
 import React from 'react';
-import './List.scss';
 import remove from "../../assets/img/remove.svg";
+import classNames from 'classnames';
+import Badge from '../Badge'
+
+import './List.scss';
 
 
-const List = ({ items, isRemovable }) => {
+
+const List = ({ items, isRemovable, onClick, colors }) => {
 
     return (
-        <ul className="list">
+        <ul onClick={onClick} className="list">
             {items.map((item, index) => (
-                    <li key={index} className={ item.active ? 'active' : ""}>
+                    <li key={index} className={ classNames(item.className, {'active':item.active})}>
                         <i>
                             { !item.color ? <img src={item.icon} alt="listSvg" /> :
-                              <i className={`badge badge--${item.color}`}></i>
+                            //   <Badge color={item.color}/>
+                            " "
                               }
                             <span>{item.name}</span>
                             { item.active && isRemovable ? <img src={remove}  alt="remove"/> : ""}
