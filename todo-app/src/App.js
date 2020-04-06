@@ -6,7 +6,33 @@ import dataBase from './assets/db.json';
 
 function App() {
 
- 
+ const [lists, setLists] = useState(
+    dataBase.lists.map( (item) => {
+      item.color = dataBase.colors.filter(color => color.id === item.colorId)[0].hex;
+    return item;
+  })
+ );
+
+ const onAddList = (obj) => {
+   const newList = [
+     ...lists,
+     obj
+   ];
+console.log(newList);
+   setLists(newList);
+ }
+
+ const onRemove = (element) => {
+  alert('Delete');
+ }
+
+ const removeList = (item) => {
+  if( window.confirm('Вы действительно хотите удалить этот список?')){
+    onRemove(item);
+  }
+  
+ }
+
 
   return (
     <div className="todo">
@@ -22,26 +48,15 @@ function App() {
         }
         
         />
-         <List items={[
-          {
-            color:'green',
-            name:'Products'
-          },
-          {
-            color:'blue',
-            name:'Frontend',
-            active:true,
-          },
-          {
-            color:'pink',
-            name:'Films and Serial'
-          }
-          
-        ]}
+         <List 
+         items={lists}
         isRemovable
+        onRemove={removeList}
         />
        <AddButtonList 
        colors={dataBase.colors}
+       lists={lists}
+       onAdd={onAddList}
        />
       </div>
       <div className="todo__tasks">
