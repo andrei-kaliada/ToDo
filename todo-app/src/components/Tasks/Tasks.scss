@@ -1,0 +1,87 @@
+.tasks {
+
+    &__title {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 39px;
+        color: #64C4ED;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f2f2f2;
+
+        &:hover {
+            img {
+                opacity: 0.3;
+            }
+        }
+
+    }
+
+    .editIcon {
+        opacity: 0;
+        margin-left: 14px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+
+        .checkbox {
+            margin-right: 15px;
+            &:hover {
+                label {
+                    background-color: #E8E8E8;
+
+                    svg {
+                        opacity: 1;
+
+                        path {
+                            stroke: #b3b3b3;
+                        }
+                    }
+                }
+            }
+
+            label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 2px solid #E8E8E8;
+                border-radius: 30px;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+
+
+            }
+
+            input {
+                display: none;
+            }
+
+            input:checked+label {
+                background: #4DD599;
+                border-color: #4DD599;
+            }
+
+        }
+
+        &-row{
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        input{
+            border:0;
+            width: 100%;
+        }
+    }
+
+}

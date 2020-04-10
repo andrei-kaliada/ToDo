@@ -1,11 +1,6 @@
 {
   "lists": [
     {
-      "id": 1,
-      "name": "Продажи",
-      "colorId": 5
-    },
-    {
       "id": 2,
       "name": "Фронтенд",
       "colorId": 4
@@ -14,11 +9,6 @@
       "id": 3,
       "name": "Фильмы и сериалы",
       "colorId": 3
-    },
-    {
-      "id": 4,
-      "name": "Книги",
-      "colorId": 2
     },
     {
       "id": 5,
@@ -34,6 +24,16 @@
       "name": "Курс по ReactJS ToDo",
       "colorId": 7,
       "id": 7
+    },
+    {
+      "name": "Test5t",
+      "colorId": 5,
+      "id": 9
+    },
+    {
+      "name": "Hello",
+      "colorId": 3,
+      "id": 10
     }
   ],
   "tasks": [
@@ -68,36 +68,6 @@
       "id": 5
     },
     {
-      "listId": 1,
-      "text": "test",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "listId": 1,
-      "text": "qweqwe",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "listId": 1,
-      "text": "qweqwe",
-      "completed": true,
-      "id": 8
-    },
-    {
-      "listId": 1,
-      "text": "123",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "listId": 4,
-      "text": "Купить 1984!",
-      "completed": true,
-      "id": 10
-    },
-    {
       "listId": 2,
       "text": "222",
       "completed": true,
@@ -120,12 +90,6 @@
       "text": "Сделали удаление и редактирование задач и списков",
       "completed": true,
       "id": 17
-    },
-    {
-      "listId": 8,
-      "text": "tttt",
-      "completed": false,
-      "id": 18
     }
   ],
   "colors": [

@@ -1,40 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '../List';
 import iconSvgAdd from '../../assets/img/add.svg';
 import Badge from '../Badge';
 import iconClose from '../../assets/img/close.svg';
+import axios from 'axios';
 
 import "./AddButtonList.scss";
 
 const AddButtonList = ({colors, onAdd, lists}) => {
 
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [active, setActiveColor] = useState(colors[0].id);
+  const [activeColor, setActiveColor] = useState();
   const [inputValue, setInputValue] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onClose = () => {
     setVisiblePopup(false);
     setInputValue('');
     setActiveColor(colors[0].id);
   }
+
+  useEffect( () => {
+    if(Array.isArray(colors)){
+      setActiveColor(colors[0].id);
+    }
+  },[colors])
   
   const addList = () => {
 
-    let lastId = lists[lists.length-1].id + 1;
+    // let lastId = lists[lists.length-1].id + 1;
 
-console.log(lastId);
     if(!inputValue){
       alert('Введите название списка');
       return;
     }
 
-    onAdd({
-      "id": lastId,
-      "name": inputValue,
-      "color": colors.filter( color => color.id === active)[0].hex,
-    });
+    setIsLoading(true);
 
-    onClose();
+    axios.post('http://localhost:3001/lists',{
+      name:inputValue,
+      colorId:activeColor
+    })
+    .then( ({data}) => {
+      const color = colors.filter(c => c.id === activeColor)[0];
+      const listObj = {
+        ...data,
+        color
+      };
+      onAdd(listObj);
+      onClose();
+    })
+    .catch(() => {
+      alert('Ошибка при добавлении списка!');
+    })
+    .finally(()=>{
+      setIsLoading(false);
+    })
+
   }
 
   return (
@@ -64,17 +86,18 @@ console.log(lastId);
 
         <div className="add-list__popup-colors">
           <ul>
-            { colors.map( ({hex, id}) => (
+            { colors.map( (color) => (
+              
                <li 
-               key={id} 
+               key={color.id} 
                
                >
-                  <Badge color={hex} 
+                  <Badge color={color.hex} 
                   onClick={() => {
-                    setActiveColor(id);
+                    setActiveColor(color.id);
                   }}
 
-                  className={active === id  && 'active'}
+                  className={activeColor === color.id  && 'active'}
                   />
                </li>
             ))}
@@ -84,7 +107,9 @@ console.log(lastId);
         </div>
         <button
         onClick={addList}
-        className="btn">Add</button>
+        className="btn">
+          { isLoading ? <p>Loading...</p> : <p>Add</p>}
+        </button>
       </div>
 
       }

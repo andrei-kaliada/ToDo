@@ -9,11 +9,12 @@
 
 
 .todo {
+    display: flex;
     position: absolute;
     left: 50%;
     top: 50%;
     width: 750px;
-    height: 530px;
+    min-height: 530px;
     transform: translate(-50%, -50%);
     box-shadow: 1px 2px 20px #f3f3f3;
     border: 1px solid #f4f6f8;
@@ -27,23 +28,30 @@
         border-right: 1px solid #f1f1f1;
         padding: 60px 20px;
     }
+
+    &__tasks {
+        flex: 1;
+        padding: 60px;
+    }
 }
 
-.btn{
-background: #4DD599;
-border-radius: 4px;
-padding:10px 20px;
-color:#fff;
-border:0;
-cursor: pointer;
 
-    &:hover{
-        background: darken( #4DD599, 7%)
+
+.btn {
+    background: #4DD599;
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+        background: darken(#4DD599, 7%)
     }
 
-    
-    &:active{
-        background: darken( #4DD599, 10%)
+
+    &:active {
+        background: darken(#4DD599, 10%)
     }
 }
 
@@ -54,9 +62,9 @@ cursor: pointer;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 8px 12px;
-   
 
-    &:focus{
+
+    &:focus {
         border-color: #dbdbdb;
     }
 }
