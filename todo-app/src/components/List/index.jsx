@@ -8,7 +8,7 @@ import './List.scss';
 
 
 
-const List = ({ items, isRemovable, onClick, onRemove}) => {
+const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem}) => {
     const [active, setActive] = useState(true);
 
  
@@ -25,14 +25,18 @@ const List = ({ items, isRemovable, onClick, onRemove}) => {
     return (
         <ul onClick={onClick} className="list">
             {items && items.map((item, index) => (
-                    <li onClick={() => {
-                        setActive(item.id);
-                    }} key={index} className={ classNames(item.className, {'active':active === item.id && 'active'})}>
+                    <li
+                    onClick={() => {
+                        setActive(item.id)
+                        onClickItem(item);
+                        ;}} 
+                    key={index} 
+                    className={ classNames(item.className, {'active':active === item.id && 'active'})}>
+
                             { !item.color ? <img src={item.icon} alt="" /> :
                               <Badge color={item.color.hex}/>
-                            
                               }
-                            <span>{item.name}</span>
+                            <span>{item.name}{ item.tasks && ` (${item.tasks.length})`}</span>
                             { (active === item.id) && isRemovable &&
                              <img 
                              onClick={() => {removeList(item)}}

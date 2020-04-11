@@ -2,18 +2,13 @@
   "lists": [
     {
       "id": 2,
-      "name": "Фронтенд",
+      "name": "Hello",
       "colorId": 4
     },
     {
       "id": 3,
       "name": "Фильмы и сериалы",
       "colorId": 3
-    },
-    {
-      "id": 5,
-      "name": "Личное",
-      "colorId": 1
     },
     {
       "name": "Спорт",
@@ -31,7 +26,7 @@
       "id": 9
     },
     {
-      "name": "Hello",
+      "name": "Java Script",
       "colorId": 3,
       "id": 10
     }

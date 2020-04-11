@@ -10,6 +10,7 @@ function App() {
 
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
 
  useEffect(() => {
   axios
@@ -21,6 +22,17 @@ function App() {
     setColors(data);
   });
 }, []);
+
+const setTitle = (id, title) => {
+  const newList = lists.map( list => {
+    if( list.id === id){
+      list.name = title;
+    }
+    return list;
+  })
+  setLists(newList);
+  
+}
 
  const onAddList = (obj) => {
    const newList = [
@@ -56,6 +68,10 @@ function App() {
          items={lists}
         isRemovable
         onRemove={onRemove}
+        onClickItem={ (item) => { 
+          setActiveItem(item);
+        }}
+        activeItem={activeItem}
         />
        <AddButtonList 
        colors={colors}
@@ -64,11 +80,7 @@ function App() {
        />
       </div>
         <div className="todo__tasks">
-          { lists && 
-            <Tasks 
-            list={lists[0]}
-            />
-          }
+          { lists && activeItem && <Tasks list={activeItem} onEditTitle={setTitle}/>}
         </div>
       </div>
   );
