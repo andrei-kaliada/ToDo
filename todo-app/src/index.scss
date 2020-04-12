@@ -53,6 +53,29 @@
     &:active {
         background: darken(#4DD599, 10%)
     }
+
+    &:disabled{
+        background-color:#d8d8d8;
+    }
+}
+
+.btn-cancel{
+    background: #F4F6F8;
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: #9C9C9C;
+    border: 0;
+    cursor: pointer;
+    margin-left: 10px;
+
+    &:hover {
+        background: darken(#F4F6F8, 7%)
+    }
+
+
+    &:active {
+        background: darken(#F4F6F8, 10%)
+    }
 }
 
 .field {

@@ -11,6 +11,7 @@ function App() {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
+ 
 
  useEffect(() => {
   axios
@@ -34,13 +35,32 @@ const setTitle = (id, title) => {
   
 }
 
- const onAddList = (obj) => {
+ const onAddList = (listId, taskObj) => {
    const newList = [
      ...lists,
-     obj
+     taskObj
    ];
+
    setLists(newList);
  }
+
+
+ const onAddTask = (id,obj) => {
+
+  const newList = lists.map( item => {
+    if(item.id === id){
+      item.tasks = [
+        ...item.tasks,
+        obj 
+      ];
+    }
+
+    return item;
+  })
+
+  setLists(newList);
+  console.log(id,obj);
+}
 
  const onRemove = (element) => {
     let newLists = lists.filter( list => list.id !== element);
@@ -57,6 +77,7 @@ const setTitle = (id, title) => {
         <List
          items={
           [{
+            active:true,
             icon:iconSvgList,
             name:'All tasks',
            
@@ -80,7 +101,7 @@ const setTitle = (id, title) => {
        />
       </div>
         <div className="todo__tasks">
-          { lists && activeItem && <Tasks list={activeItem} onEditTitle={setTitle}/>}
+          { lists && activeItem && <Tasks list={activeItem} onAddTask={onAddTask} onEditTitle={setTitle}/>}
         </div>
       </div>
   );

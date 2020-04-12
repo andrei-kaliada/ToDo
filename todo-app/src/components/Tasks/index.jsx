@@ -1,12 +1,13 @@
 import React from 'react';
 import editIcon from '../../assets/img/edit.svg';
 import checkIcon from '../../assets/img/check.svg';
+import AddTasksForm from './AddTasksForm';
 
 import axios from 'axios';
 
 import './Tasks.scss';
 
-export default function Tasks({ list,onEditTitle }) {
+export default function Tasks({ list,onEditTitle, onAddTask }) {
 
     const editTitle = () => {
         const newTitle = window.prompt('Write new Title');
@@ -20,6 +21,7 @@ export default function Tasks({ list,onEditTitle }) {
         
     }
 
+
     return (
         <div className="tasks">
             <h2 className="tasks__title">
@@ -27,8 +29,8 @@ export default function Tasks({ list,onEditTitle }) {
                 <img onClick={editTitle} src={editIcon} alt="editIcon" className="editIcon" />
             </h2>
             <div className="tasks__items">
-                { !list.tasks.length && <h2>No tasks</h2>}
-                {list.tasks.map(task => (
+                { (list.tasks ? !list.tasks.length : null) && <h2>No tasks</h2>}
+                {list.tasks && list.tasks.map(task => (
                     <div key={task.id} className="tasks__items-row">
                         <div htmlFor="" className="checkbox">
                             <input id={`task-${task.id}`} type="checkbox" />
@@ -41,6 +43,7 @@ export default function Tasks({ list,onEditTitle }) {
                     </div>
                 ))}
             </div>
+            <AddTasksForm list={list} onAddTask={onAddTask} />
         </div>
     )
 }

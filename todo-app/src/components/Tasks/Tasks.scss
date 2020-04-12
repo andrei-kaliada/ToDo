@@ -18,6 +18,41 @@
 
     }
 
+    
+
+    &__form{
+        margin-top: 20px;
+
+        &-add{
+            margin-top: 20px;
+
+            &-btn{
+                margin-top: 16px;
+            }
+        }
+
+        &-new{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0.5;
+
+            &:hover{
+                opacity:1;
+            }
+
+            img{
+                width: 16px;
+                height: 16px;
+            }
+
+            span{
+                font-size: 16px;
+                margin-left: 10px;
+            }
+        }
+    }
+
     .editIcon {
         opacity: 0;
         margin-left: 14px;
