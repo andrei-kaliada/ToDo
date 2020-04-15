@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import remove from "../../assets/img/remove.svg";
 import classNames from 'classnames';
 import Badge from '../Badge'
@@ -20,20 +20,14 @@ const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem})
         
        }
 
-       if(activeItem){
-           console.log(activeItem.id);
-       }
-       
-
-      
-
+       console.log(items);
     return (
         <ul onClick={onClick} className="list">
             {items && items.map((item, index) => (
                     <li
                     onClick={onClickItem ? () => onClickItem(item) : null} 
                     key={index} 
-                    className={ classNames(item.className, {
+                    className={classNames(item.className, {
                         active: item.active
                           ? item.active
                           : activeItem && activeItem.id === item.id

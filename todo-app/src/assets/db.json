@@ -21,44 +21,32 @@
       "id": 7
     },
     {
-      "name": "Test5t",
-      "colorId": 5,
+      "name": "Test",
+      "colorId": 4,
       "id": 9
     },
     {
-      "name": "Java Script",
-      "colorId": 3,
+      "name": "Test",
+      "colorId": 1,
       "id": 10
     },
     {
-      "name": "Test3",
-      "colorId": 4,
-      "id": 14
+      "name": "Weqr",
+      "colorId": 6,
+      "id": 11
     },
     {
-      "name": "Test",
-      "colorId": 3,
-      "id": 15
-    },
-    {
-      "name": "Text",
-      "colorId": 7,
+      "name": "123",
+      "colorId": 5,
       "id": 16
+    },
+    {
+      "name": "New",
+      "colorId": 6,
+      "id": 17
     }
   ],
   "tasks": [
-    {
-      "id": 1,
-      "listId": 2,
-      "text": "Изучить JavaScript",
-      "completed": true
-    },
-    {
-      "id": 2,
-      "listId": 2,
-      "text": "Изучить паттерны проектирования",
-      "completed": false
-    },
     {
       "id": 3,
       "listId": 2,
@@ -73,13 +61,7 @@
     },
     {
       "listId": 2,
-      "text": "123",
-      "completed": true,
-      "id": 5
-    },
-    {
-      "listId": 2,
-      "text": "222",
+      "text": "Test",
       "completed": true,
       "id": 12
     },
@@ -91,75 +73,45 @@
     },
     {
       "listId": 7,
-      "text": "Сделали список задач",
+      "text": "Test",
       "completed": true,
       "id": 16
     },
     {
       "listId": 7,
-      "text": "Сделали удаление и редактирование задач и списков",
+      "text": "",
       "completed": true,
       "id": 17
     },
     {
       "listId": 2,
-      "text": "Test",
-      "completed": false,
+      "text": "kek",
+      "completed": true,
       "id": 18
     },
     {
-      "listId": 14,
+      "listId": 2,
       "text": "Test",
       "completed": false,
       "id": 19
     },
     {
-      "listId": 15,
-      "text": "Test",
+      "listId": 6,
+      "text": "Новый",
       "completed": false,
       "id": 20
     },
     {
-      "listId": 2,
-      "text": "Hello",
+      "listId": 9,
+      "text": "Test",
       "completed": false,
       "id": 21
     },
     {
-      "listId": 2,
+      "listId": 16,
       "text": "Test",
       "completed": false,
       "id": 22
-    },
-    {
-      "listId": 2,
-      "text": "test",
-      "completed": false,
-      "id": 23
-    },
-    {
-      "listId": 2,
-      "text": "Test",
-      "completed": false,
-      "id": 24
-    },
-    {
-      "listId": 2,
-      "text": "Test",
-      "completed": false,
-      "id": 25
-    },
-    {
-      "listId": 6,
-      "text": "Test",
-      "completed": false,
-      "id": 26
-    },
-    {
-      "listId": 3,
-      "text": "Test",
-      "completed": false,
-      "id": 27
     }
   ],
   "colors": [
